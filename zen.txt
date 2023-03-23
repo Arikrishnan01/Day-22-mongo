@@ -1,0 +1,387 @@
+// Insert the data into the database:
+
+
+db.topics.insertMany([
+    { id:1, subject:"html", date:"01-10-2020",mentor:"Mahesh" },
+    { id:2, subject:"css", date:"02-10-2020",mentor:"Sangeetha" },
+    { id:3, subject:"javascript", date:"03-10-2020",mentor:"Mahesh" },
+    { id:4, subject:"html", date:"04-10-2020",mentor:"Lavish" },
+    { id:5, subject:"react", date:"05-10-2020",mentor:"Sangeetha" },
+    { id:6, subject:"mongodb", date:"06-10-2020",mentor:"Mahesh" },
+    { id:7, subject:"react", date:"07-10-2020",mentor:"Lavish" },
+    { id:8, subject:"nodejs", date:"08-10-2020",mentor:"Sangeetha" },
+    { id:9, subject:"mongodb", date:"09-10-2020",mentor:"Sangeetha" },
+    { id:10, subject:"react", date:"10-10-2020",mentor:"Mahesh" },
+    { id:11, subject:"nodejs", date:"08-12-2020",mentor:"Sangeetha" },
+    { id:12, subject:"react", date:"07-11-2020",mentor:"Sangeetha" },
+    { id:13, subject:"css", date:"02-07-2020",mentor:"Mahesh" },
+    { id:14, subject:"react", date:"04-12-2020",mentor:"Sangeetha" },
+    { id:15, subject:"html", date:"07-11-2020",mentor:"Lavish" }
+])
+
+// All the topics and tasks which are thought in the month of October
+
+    db.topics.find({date: /10/}).pretty();
+
+    Output:
+
+    {
+            "_id" : ObjectId("641ce5ff6ee2185bedfb6769"),
+            "id" : 1,
+            "subject" : "html",
+            "date" : "01-10-2020",
+            "mentor" : "Mahesh"
+    }
+    {
+            "_id" : ObjectId("641ce5ff6ee2185bedfb676a"),
+            "id" : 2,
+            "subject" : "css",
+            "date" : "02-10-2020",
+            "mentor" : "Sangeetha"
+    }
+    {
+            "_id" : ObjectId("641ce9f46ee2185bedfb676b"),
+            "id" : 3,
+            "subject" : "javascript",
+            "date" : "03-10-2020",
+            "mentor" : "Mahesh"
+    }
+    {
+            "_id" : ObjectId("641ce9f46ee2185bedfb676c"),
+            "id" : 4,
+            "subject" : "html",
+            "date" : "04-10-2020",
+            "mentor" : "Lavish"
+    }
+    {
+            "_id" : ObjectId("641ce9f46ee2185bedfb676d"),
+            "id" : 5,
+            "subject" : "react",
+            "date" : "05-10-2020",
+            "mentor" : "Sangeetha"
+    }
+    {
+            "_id" : ObjectId("641ce9f46ee2185bedfb676e"),
+            "id" : 6,
+            "subject" : "mongodb",
+            "date" : "06-10-2020",
+            "mentor" : "Mahesh"
+    }
+    {
+            "_id" : ObjectId("641ce9f46ee2185bedfb676f"),
+            "id" : 7,
+            "subject" : "react",
+            "date" : "07-10-2020",
+            "mentor" : "Lavish"
+    }
+    {
+            "_id" : ObjectId("641ce9f46ee2185bedfb6770"),
+            "id" : 8,
+            "subject" : "nodejs",
+            "date" : "08-10-2020",
+            "mentor" : "Sangeetha"
+    }
+    {
+            "_id" : ObjectId("641ce9f46ee2185bedfb6771"),
+            "id" : 9,
+            "subject" : "mongodb",
+            "date" : "09-10-2020",
+            "mentor" : "Sangeetha"
+    }
+    {
+            "_id" : ObjectId("641ce9f46ee2185bedfb6772"),
+            "id" : 10,
+            "subject" : "react",
+            "date" : "10-10-2020",
+            "mentor" : "Mahesh"
+    }
+
+
+// Insert the company_drives data into database
+// Collection name is company_drives
+
+    db.company_drives.insertMany([
+        { date:"15-10-2020",hr:"Saravanan",student:"Arun",select:"Yes"},
+        { date:"16-10-2020",hr:"Keetha",student:"Krishnan",select:"No"},
+        { date:"17-10-2020",hr:"Saravanan",student:"Kannan",select:"Yes"},
+        { date:"19-10-2020",hr:"Suresh",student:"Raguram",select:"No"},
+        { date:"22-10-2020",hr:"Saravanan",student:"GokulRaj",select:"No"},
+        { date:"24-10-2020",hr:"Suresh",student:"Sudhakar",select:"No"},
+        { date:"25-10-2020",hr:"Keetha",student:"Akash",select:"Yes"},
+        { date:"27-10-2020",hr:"Keetha",student:"Kavin",select:"Yes"},
+        { date:"25-11-2022",hr:"Keetha",student:"Swathi",select:"Yes"},
+        { date:"12-12-2020",hr:"Saravnan",student:"Nandhini",select:"No"},
+        { date:"25-09-2020",hr:"Suresh",student:"Swetha",select:"No"},
+        { date:"14-09-2020",hr:"Keetha",student:"Keerthana",select:"Yes"},
+        { date:"13-10-2021",hr:"Keetha",student:"Akash",select:"Yes"}
+    ])
+
+// All the company drives which appeared between 15 oct-2020 and 31-oct-2020
+
+    db.company_drives.find({date: {$gt:"15-10-2020",$lt:"31-10-2020"}}).pretty();
+
+    Output:
+
+        {
+            "_id" : ObjectId("641cf80e6ee2185bedfb6779"),
+            "date" : "16-10-2020",
+            "hr" : "Keetha",
+            "student" : "Krishnan",
+            "select" : "No"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677a"),
+            "date" : "17-10-2020",
+            "hr" : "Saravanan",
+            "student" : "Kannan",
+            "select" : "Yes"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677b"),
+            "date" : "19-10-2020",
+            "hr" : "Suresh",
+            "student" : "Raguram",
+            "select" : "No"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677c"),
+            "date" : "22-10-2020",
+            "hr" : "Saravanan",
+            "student" : "GokulRaj",
+            "select" : "No"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677d"),
+            "date" : "24-10-2020",
+            "hr" : "Suresh",
+            "student" : "Sudhakar",
+            "select" : "No"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677e"),
+            "date" : "25-10-2020",
+            "hr" : "Keetha",
+            "student" : "Akash",
+            "select" : "Yes"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677f"),
+            "date" : "27-10-2020",
+            "hr" : "Keetha",
+            "student" : "Kavin",
+            "select" : "Yes"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb6780"),
+            "date" : "25-11-2022",
+            "hr" : "Keetha",
+            "student" : "Swathi",
+            "select" : "Yes"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb6782"),
+            "date" : "25-09-2020",
+            "hr" : "Suresh",
+            "student" : "Swetha",
+            "select" : "No"
+    }
+
+// All the company drives and students who are appeared for the placement
+
+    db.company_drives.find().pretty();
+
+    Output:
+
+        {
+            "_id" : ObjectId("641cf80e6ee2185bedfb6778"),
+            "date" : "15-10-2020",
+            "hr" : "Saravanan",
+            "student" : "Arun",
+            "select" : "Yes"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb6779"),
+            "date" : "16-10-2020",
+            "hr" : "Keetha",
+            "student" : "Krishnan",
+            "select" : "No"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677a"),
+            "date" : "17-10-2020",
+            "hr" : "Saravanan",
+            "student" : "Kannan",
+            "select" : "Yes"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677b"),
+            "date" : "19-10-2020",
+            "hr" : "Suresh",
+            "student" : "Raguram",
+            "select" : "No"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677c"),
+            "date" : "22-10-2020",
+            "hr" : "Saravanan",
+            "student" : "GokulRaj",
+            "select" : "No"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677d"),
+            "date" : "24-10-2020",
+            "hr" : "Suresh",
+            "student" : "Sudhakar",
+            "select" : "No"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677e"),
+            "date" : "25-10-2020",
+            "hr" : "Keetha",
+            "student" : "Akash",
+            "select" : "Yes"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb677f"),
+            "date" : "27-10-2020",
+            "hr" : "Keetha",
+            "student" : "Kavin",
+            "select" : "Yes"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb6780"),
+            "date" : "25-11-2022",
+            "hr" : "Keetha",
+            "student" : "Swathi",
+            "select" : "Yes"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb6781"),
+            "date" : "12-12-2020",
+            "hr" : "Saravnan",
+            "student" : "Nandhini",
+            "select" : "No"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb6782"),
+            "date" : "25-09-2020",
+            "hr" : "Suresh",
+            "student" : "Swetha",
+            "select" : "No"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb6783"),
+            "date" : "14-09-2020",
+            "hr" : "Keetha",
+            "student" : "Keerthana",
+            "select" : "Yes"
+    }
+    {
+            "_id" : ObjectId("641cf80e6ee2185bedfb6784"),
+            "date" : "13-10-2021",
+            "hr" : "Keetha",
+            "student" : "Akash",
+            "select" : "Yes"
+    }
+
+// Insert the codekata data into database
+// Collection name is codekata
+
+    db.codekata.insertMany([
+        {name:"Sharam",course:"Mern Stack",topic:"Array",count:55},
+        {name:"Nisha",course:"Mern Stack",topic:"String",count:200},
+        {name:"Monica",course:"Data Science",topic:"Array",count:165},
+        {name:"Saideep",course:"Python",topic:"Data Structure",count:75},
+        {name:"Arun",course:"Java",topic:"Numbers",count:78},
+        {name:"Durai",course:"Javascript",topic:"Array",count:123},
+        {name:"Akila",course:"Mern Stack",topic:"String",count:235},
+        {name:"Swetha",course:"Java",topic:"Array",count:335},
+        {name:"Saranya",course:"Python",topic:"Numbers",count:125},
+        {name:"Kaviya",course:"REact",topic:"String",count:75}
+    ])
+
+// The number of problems solved by the user in codekata
+
+    db.codekata.find({},{count:1}).pretty();
+
+    Output:
+
+    { "_id" : ObjectId("641cfdff1f676cbce2ebe11b"), "count" : 55 }
+    { "_id" : ObjectId("641cfdff1f676cbce2ebe11c"), "count" : 200 }
+    { "_id" : ObjectId("641cfdff1f676cbce2ebe11d"), "count" : 165 }
+    { "_id" : ObjectId("641cfdff1f676cbce2ebe11e"), "count" : 75 }
+    { "_id" : ObjectId("641cfdff1f676cbce2ebe11f"), "count" : 78 }
+    { "_id" : ObjectId("641cfdff1f676cbce2ebe120"), "count" : 123 }
+    { "_id" : ObjectId("641cfdff1f676cbce2ebe121"), "count" : 235 }
+    { "_id" : ObjectId("641cfdff1f676cbce2ebe122"), "count" : 335 }
+    { "_id" : ObjectId("641cfdff1f676cbce2ebe123"), "count" : 125 }
+    { "_id" : ObjectId("641cfdff1f676cbce2ebe124"), "count" : 75 }
+
+// All the mentors with who has the mentee's count more than 15
+
+    db.mentors.insertMany([
+        { id:01,name:"Lavish",subject:"html",batch:"Tamil"},
+        { id:02,name:"Mahesh",subject:"css",batch:"English"},
+        { id:03,name:"Lavish",subject:"javascript",batch:"Tamil"},
+        { id:04,name:"Sangeetha",subject:"react",batch:"Tamil"},
+        { id:05,name:"Lavish",subject:"css",batch:"English"},
+        { id:09,name:"Magesh",subject:"html",batch:"English"},
+        { id:10,name:"Sangeetha",subject:"react",batch:"Tamil"},
+        { id:11,name:"Lavish",subject:"html",batch:"Tamil"},
+        { id:15,name:"Mahesh",subject:"react",batch:"English"},
+        { id:16,name:"Sangeetha",subject:"react",batch:"English"},
+        { id:17,name:"Mahesh",subject:"nodejs",batch:"English"},
+        { id:18,name:"Sangeetha",subject:"mongdb",batch:"Tamil"},
+        { id:19,name:"Lavish",subject:"html",batch:"English"},
+        { id:20,name:"Sangeetha",subject:"react",batch:"Tamil"},
+        { id:21,name:"Mahesh",subject:"javasvript",batch:"Tamil"},
+    ])
+
+// All the mentors with who has the mentee's count more than 15
+
+    db.mentors.find({id:{$gt:15}}).pretty();
+
+    Output:
+    
+    {
+            "_id" : ObjectId("641d014537da8cd7cfec28ec"),
+            "id" : 16,
+            "name" : "Sangeetha",
+            "subject" : "react",
+            "batch" : "English"
+    }
+    {
+            "_id" : ObjectId("641d014537da8cd7cfec28ed"),
+            "id" : 17,
+            "name" : "Mahesh",
+            "subject" : "nodejs",
+            "batch" : "English"
+    }
+    {
+            "_id" : ObjectId("641d014537da8cd7cfec28ee"),
+            "id" : 18,
+            "name" : "Sangeetha",
+            "subject" : "mongdb",
+            "batch" : "Tamil"
+    }
+    {
+            "_id" : ObjectId("641d014537da8cd7cfec28ef"),
+            "id" : 19,
+            "name" : "Lavish",
+            "subject" : "html",
+            "batch" : "English"
+    }
+    {
+            "_id" : ObjectId("641d014537da8cd7cfec28f0"),
+            "id" : 20,
+            "name" : "Sangeetha",
+            "subject" : "react",
+            "batch" : "Tamil"
+    }
+    {
+            "_id" : ObjectId("641d014537da8cd7cfec28f1"),
+            "id" : 21,
+            "name" : "Mahesh",
+            "subject" : "javasvript",
+            "batch" : "Tamil"
+    }
